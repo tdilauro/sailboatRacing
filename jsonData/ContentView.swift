@@ -41,9 +41,8 @@ class FlagCategories: ObservableObject, Codable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         flags["Numbers"] = try container.decode([NauticalFlag].self, forKey: .numbers)
-        names.append("Numbers")
         flags["Letters"] = try container.decode([NauticalFlag].self, forKey: .letters)
-        names.append("Letters")
+        names = Array(flags.keys)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -56,14 +55,15 @@ class FlagCategories: ObservableObject, Codable {
         case letters
         case numbers
     }
+
 }
 
 class NauticalFlag: ObservableObject, Codable, Identifiable {
     @Published var id: String = ""
     @Published var mnemonic: String = ""
     @Published var media_url: String = ""
-    var image_name = ""
-    var uiImage = UIImage()
+//    var image_name = ""
+    @Published var uiImage = UIImage()
 
     init() {}
 
@@ -72,8 +72,10 @@ class NauticalFlag: ObservableObject, Codable, Identifiable {
         id = try container.decode(String.self, forKey: .id)
         mnemonic = try container.decode(String.self, forKey: .mnemonic)
         media_url = try container.decode(String.self, forKey: .media_url)
-        if let img = UIImage(downloadFrom: media_url) {
-            uiImage = img
+        DispatchQueue.global(qos: .userInitiated).async {
+            if let img = UIImage(downloadFrom: self.media_url) {
+                DispatchQueue.main.async { self.uiImage = img }
+            }
         }
     }
 
@@ -93,7 +95,7 @@ class NauticalFlag: ObservableObject, Codable, Identifiable {
 
 
 struct NauticalFlagListItem: View {
-    var flag: NauticalFlag
+    @ObservedObject var flag: NauticalFlag
 
     var body: some View {
         HStack {
@@ -104,7 +106,7 @@ struct NauticalFlagListItem: View {
                     .font(.subheadline)
             }
             Spacer()
-            Image(uiImage: UIImage(downloadFrom: flag.media_url) ?? UIImage())
+            Image(uiImage: flag.uiImage)
                 .resizable()
                 .scaledToFit()
 //                .border(Color.black, width: 1)
@@ -175,7 +177,6 @@ struct ContentView: View {
         }
     }
 
-
     func loadData() {
         guard let url = URL(string: self.jsonURL) else {
             print("Invalid URL: '\(self.jsonURL)'")
@@ -187,13 +188,11 @@ struct ContentView: View {
             if let data = data {
                 do {
                     let decodedData = try JSONDecoder().decode(FlagCategories.self, from: data)
-//                    DispatchQueue.main.async {
+                    DispatchQueue.main.async {
                         self.flagCategories = decodedData
-//                        print("letters")
-//                        self.flagCategories.letters = decodedData.letters
-//                        print("numbers")
-//                        self.flagCategories.numbers = decodedData.numbers
-//                    }
+//                        self.flagCategories.flags = decodedData.flags
+//                        self.flagCategories.names = decodedData.names
+                    }
                     return
                 } catch {
                     print(error)
