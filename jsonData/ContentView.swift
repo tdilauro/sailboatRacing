@@ -12,26 +12,6 @@ import UIKit
 import SwiftUI
 
 
-extension String {
-    func matches(_ regex: String, options: NSString.CompareOptions = .regularExpression) -> Bool {
-        return self.range(of: regex, options: options, range: nil, locale: nil) != nil
-    }
-}
-
-
-extension UIImage {
-
-    convenience init?(downloadFrom urlString: String) {
-        if let url = URL(string: urlString), let data = try? Data(contentsOf: url) {
-            self.init(data: data)
-        } else {
-            return nil
-        }
-    }
-
-}
-
-
 typealias FlagCategories = [FlagCategory]
 typealias NauticalFlags = [NauticalFlag]
 
