@@ -74,6 +74,37 @@ class NauticalFlag: ObservableObject, Codable, Identifiable {
 }
 
 
+class NauticalFlagsViewModel: ObservableObject {
+    @Published var flagCategories: [FlagCategory] = []
+
+    func loadData(apiURL: String) {
+        guard let url = URL(string: apiURL) else {
+            print("Invalid URL: '\(apiURL)'")
+            return
+        }
+
+        let request = URLRequest(url: url)
+        URLSession.shared.dataTask(with: request) {data, response, error in
+            guard let data = data else {
+                print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
+                return
+            }
+
+            do {
+                let decodedData = try JSONDecoder().decode(FlagCategories.self, from: data)
+                DispatchQueue.main.async {
+                    self.flagCategories = decodedData
+                }
+                return
+            } catch {
+                print(error)
+            }
+
+        }.resume()
+    }
+}
+
+
 struct NauticalFlagListItem: View {
     @ObservedObject var flag: NauticalFlag
 
@@ -116,22 +147,24 @@ struct NauticalFlagSectionHeader: View {
 // Make a SwiftUI view
 struct ContentView: View {
     private let jsonURL = "http://127.0.0.1:8000/nautical-flags-with-media.json"
-    @State private var flagCategories = FlagCategories()
+
+    @ObservedObject var flagsVM = NauticalFlagsViewModel()
     @State private var sectionState: [Int: Bool] = [:]
+    
 
     func isExpanded(_ section: Int) -> Bool {
         sectionState[section] ?? true
     }
 
     func sectionName(_ section: Int) -> String {
-        return flagCategories[section].category
+        flagsVM.flagCategories[section].category
     }
 
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(0..<flagCategories.count, id: \.self) { section in
+                ForEach(0..<self.flagsVM.flagCategories.count, id: \.self) { section in
                     Section(header:
                         NauticalFlagSectionHeader(title: self.sectionName(section), isExpanded: self.isExpanded(section))
                         .contentShape(Rectangle())
@@ -139,7 +172,7 @@ struct ContentView: View {
                             self.sectionState[section] = !self.isExpanded(section)
                     }) {
                         if self.isExpanded(section) {
-                            ForEach((self.flagCategories[section].flags).indexed(), id: \.1.id) { row, flag in
+                            ForEach((self.flagsVM.flagCategories[section].flags).indexed(), id: \.1.id) { row, flag in
                                 NauticalFlagListItem(flag: flag)
                                     .listRowBackground(Color.secondary.opacity(row % 2 == 0 ? 0.8 : 0.5))
                             }
@@ -148,36 +181,13 @@ struct ContentView: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .onAppear(perform: loadData)
             .navigationBarTitle("Nautical Flags")
+            .navigationBarItems(trailing: Button(action: {
+                self.flagsVM.loadData(apiURL: self.jsonURL)
+            }, label: { Text("Load Data") }))
         }
     }
 
-    func loadData() {
-        guard let url = URL(string: self.jsonURL) else {
-            print("Invalid URL: '\(self.jsonURL)'")
-            return
-        }
-
-        let request = URLRequest(url: url)
-        URLSession.shared.dataTask(with: request) {data, response, error in
-            guard let data = data else {
-                print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
-                return
-            }
-
-            do {
-                let decodedData = try JSONDecoder().decode(FlagCategories.self, from: data)
-                DispatchQueue.main.async {
-                    self.flagCategories = decodedData
-                }
-                return
-            } catch {
-                print(error)
-            }
-
-        }.resume()
-    }
 }
 
 
