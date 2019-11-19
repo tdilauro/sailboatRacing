@@ -32,37 +32,37 @@ extension UIImage {
 }
 
 
-class FlagCategories: ObservableObject, Codable {
-    @Published var names: [String] = []
-    @Published var flags: [String: [NauticalFlag]] = [:]
+typealias FlagCategories = [FlagCategory]
+typealias NauticalFlags = [NauticalFlag]
+
+class FlagCategory: ObservableObject, Codable {
+    @Published var category = ""
+    @Published var flags = NauticalFlags()
 
     init() {}
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        flags["Numbers"] = try container.decode([NauticalFlag].self, forKey: .numbers)
-        flags["Letters"] = try container.decode([NauticalFlag].self, forKey: .letters)
-        names = Array(flags.keys)
+        category = try container.decode(String.self, forKey: .category)
+        flags = try container.decode(NauticalFlags.self, forKey: .flags)
     }
 
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(flags["Letters"], forKey: .letters)
-        try container.encode(flags["Numbers"], forKey: .numbers)
+        try container.encode(category, forKey: .category)
+        try container.encode(flags, forKey: .flags)
     }
 
     enum CodingKeys: String, CodingKey {
-        case letters
-        case numbers
+        case category
+        case flags
     }
-
 }
 
 class NauticalFlag: ObservableObject, Codable, Identifiable {
     @Published var id: String = ""
     @Published var mnemonic: String = ""
     @Published var media_url: String = ""
-//    var image_name = ""
     @Published var uiImage = UIImage()
 
     init() {}
@@ -144,14 +144,14 @@ struct ContentView: View {
     }
 
     func sectionName(_ section: Int) -> String {
-        return flagCategories.names[section]
+        return flagCategories[section].category
     }
 
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(0..<flagCategories.names.count, id: \.self) { section in
+                ForEach(0..<flagCategories.count, id: \.self) { section in
                     Section(header:
                         NauticalFlagSectionHeader(title: self.sectionName(section), isExpanded: self.isExpanded(section))
                         .contentShape(Rectangle())
@@ -159,21 +159,17 @@ struct ContentView: View {
                             self.sectionState[section] = !self.isExpanded(section)
                     }) {
                         if self.isExpanded(section) {
-                            ForEach((self.flagCategories.flags[self.sectionName(section)] ?? [NauticalFlag]()).indexed(), id: \.1.id) { row, flag in
+                            ForEach((self.flagCategories[section].flags).indexed(), id: \.1.id) { row, flag in
                                 NauticalFlagListItem(flag: flag)
                                     .listRowBackground(Color.secondary.opacity(row % 2 == 0 ? 0.8 : 0.5))
                             }
                         }
                     }
                 }
-                .onMove { source, destination in
-                    source.forEach { print("move: from \($0) -> \(destination)") }
-                }
             }
             .listStyle(GroupedListStyle())
             .onAppear(perform: loadData)
             .navigationBarTitle("Nautical Flags")
-        .navigationBarItems(trailing: EditButton())
         }
     }
 
@@ -185,21 +181,21 @@ struct ContentView: View {
 
         let request = URLRequest(url: url)
         URLSession.shared.dataTask(with: request) {data, response, error in
-            if let data = data {
-                do {
-                    let decodedData = try JSONDecoder().decode(FlagCategories.self, from: data)
-                    DispatchQueue.main.async {
-                        self.flagCategories = decodedData
-//                        self.flagCategories.flags = decodedData.flags
-//                        self.flagCategories.names = decodedData.names
-                    }
-                    return
-                } catch {
-                    print(error)
-                }
+            guard let data = data else {
+                print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
+                return
             }
 
-            print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
+            do {
+                let decodedData = try JSONDecoder().decode(FlagCategories.self, from: data)
+                DispatchQueue.main.async {
+                    self.flagCategories = decodedData
+                }
+                return
+            } catch {
+                print(error)
+            }
+
         }.resume()
     }
 }
