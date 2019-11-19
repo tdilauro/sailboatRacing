@@ -6,8 +6,6 @@
 //  Copyright © 2019 Five Lions. All rights reserved.
 //
 
-//: A UIKit based Playground for presenting user interface
-
 import UIKit
 import SwiftUI
 
@@ -120,7 +118,6 @@ struct NauticalFlagListItem: View {
             Image(uiImage: flag.uiImage)
                 .resizable()
                 .scaledToFit()
-//                .border(Color.black, width: 1)
                 .frame(height: 40)
         }
     }
@@ -150,7 +147,7 @@ struct ContentView: View {
 
     @ObservedObject var flagsVM = NauticalFlagsViewModel()
     @State private var sectionState: [Int: Bool] = [:]
-    
+
 
     func isExpanded(_ section: Int) -> Bool {
         sectionState[section] ?? true
@@ -190,14 +187,6 @@ struct ContentView: View {
 
 }
 
-
-//import SwiftUI
-//
-//struct ContentView: View {
-//    var body: some View {
-//        Text("Hello, World!")
-//    }
-//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
