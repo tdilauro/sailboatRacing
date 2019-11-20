@@ -19,6 +19,7 @@
 		C48947C22384A7B5003A9962 /* NauticalFlagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947C12384A7B5003A9962 /* NauticalFlagsViewModel.swift */; };
 		C48947C42384ABFE003A9962 /* NauticalFlagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947C32384ABFE003A9962 /* NauticalFlagsListView.swift */; };
 		C48947C62384AE71003A9962 /* NauticalFlagJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947C52384AE71003A9962 /* NauticalFlagJSON.swift */; };
+		C48947FD23851446003A9962 /* PersistentContainerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947FC23851446003A9962 /* PersistentContainerManager.swift */; };
 		C4B17FF42383BEEF0091F26A /* String-matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B17FF32383BEEF0091F26A /* String-matches.swift */; };
 		C4B17FF62383BF5B0091F26A /* UIImage-downloadFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B17FF52383BF5B0091F26A /* UIImage-downloadFrom.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		C48947C12384A7B5003A9962 /* NauticalFlagsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NauticalFlagsViewModel.swift; sourceTree = "<group>"; };
 		C48947C32384ABFE003A9962 /* NauticalFlagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NauticalFlagsListView.swift; sourceTree = "<group>"; };
 		C48947C52384AE71003A9962 /* NauticalFlagJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NauticalFlagJSON.swift; sourceTree = "<group>"; };
+		C48947FC23851446003A9962 /* PersistentContainerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentContainerManager.swift; sourceTree = "<group>"; };
 		C4B17FF32383BEEF0091F26A /* String-matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-matches.swift"; sourceTree = "<group>"; };
 		C4B17FF52383BF5B0091F26A /* UIImage-downloadFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-downloadFrom.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 		C41E9F672380784700E75B9D /* jsonData */ = {
 			isa = PBXGroup;
 			children = (
+				C48947F92385119E003A9962 /* CoreData */,
 				C4B1800423849E090091F26A /* NauticalFlags */,
 				C4B17FF22383BEB40091F26A /* Extensions */,
 				C41E9F7C2383130600E75B9D /* RandomAccessCollection */,
@@ -108,6 +111,14 @@
 				C48947C12384A7B5003A9962 /* NauticalFlagsViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C48947F92385119E003A9962 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C48947FC23851446003A9962 /* PersistentContainerManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		C4B17FF22383BEB40091F26A /* Extensions */ = {
@@ -222,6 +233,7 @@
 				C48947BC23849F84003A9962 /* NauticalFlagListItem.swift in Sources */,
 				C4B17FF42383BEEF0091F26A /* String-matches.swift in Sources */,
 				C48947BD23849F84003A9962 /* NauticalFlagSectionHeader.swift in Sources */,
+				C48947FD23851446003A9962 /* PersistentContainerManager.swift in Sources */,
 				C48947C22384A7B5003A9962 /* NauticalFlagsViewModel.swift in Sources */,
 				C48947C62384AE71003A9962 /* NauticalFlagJSON.swift in Sources */,
 				C41E9F692380784700E75B9D /* AppDelegate.swift in Sources */,
