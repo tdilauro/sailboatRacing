@@ -12,33 +12,13 @@ import UIKit
 typealias FlagCategories = [FlagCategory]
 typealias NauticalFlags = [NauticalFlag]
 
-
-class FlagCategory: ObservableObject, Codable {
-    @Published var category = ""
-    @Published var flags = NauticalFlags()
-
-    init() {}
-
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        category = try container.decode(String.self, forKey: .category)
-        flags = try container.decode(NauticalFlags.self, forKey: .flags)
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(category, forKey: .category)
-        try container.encode(flags, forKey: .flags)
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case category
-        case flags
-    }
+struct FlagCategory: Codable {
+    var category: String
+    var flags: [NauticalFlag]
 }
 
 
-class NauticalFlag: ObservableObject, Codable, Identifiable {
+class NauticalFlag: ObservableObject, Codable {
     @Published var id: String = ""
     @Published var mnemonic: String = ""
     @Published var media_url: String = ""
