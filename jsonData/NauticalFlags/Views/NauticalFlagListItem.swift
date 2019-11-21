@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct NauticalFlagListItem: View {
-    @ObservedObject var flag: NauticalFlag
+    @ObservedObject var flag: NauticalFlagJSON
 
     var body: some View {
         HStack {
@@ -31,8 +31,8 @@ struct NauticalFlagListItem: View {
 
 
 struct NauticalFlagListItem_Previews: PreviewProvider {
-    @ObservedObject static var flag: NauticalFlag = {
-        let flag = NauticalFlag()
+    @ObservedObject static var flag: NauticalFlagJSON = {
+        let flag = NauticalFlagJSON()
         flag.id = "A"
         flag.mnemonic = "Alfa"
         flag.media_url = ""

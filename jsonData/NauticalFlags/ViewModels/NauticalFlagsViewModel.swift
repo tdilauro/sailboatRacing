@@ -9,7 +9,7 @@
 import Foundation
 
 class NauticalFlagsViewModel: ObservableObject {
-    @Published var flagCategories: [FlagCategory] = []
+    @Published var flagCategories: [FlagCategoryJSON] = []
 
     func loadData(apiURL: String) {
         guard let url = URL(string: apiURL) else {
@@ -25,7 +25,7 @@ class NauticalFlagsViewModel: ObservableObject {
             }
 
             do {
-                let decodedData = try JSONDecoder().decode(FlagCategories.self, from: data)
+                let decodedData = try JSONDecoder().decode(FlagCategoriesJSON.self, from: data)
                 DispatchQueue.main.async {
                     self.flagCategories = decodedData
                 }

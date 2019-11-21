@@ -9,16 +9,16 @@
 import UIKit
 
 
-typealias FlagCategories = [FlagCategory]
-typealias NauticalFlags = [NauticalFlag]
+typealias FlagCategoriesJSON = [FlagCategoryJSON]
+typealias NauticalFlagsJSON = [NauticalFlagJSON]
 
-struct FlagCategory: Codable {
+struct FlagCategoryJSON: Codable {
     var category: String
-    var flags: [NauticalFlag]
+    var flags: [NauticalFlagJSON]
 }
 
 
-class NauticalFlag: ObservableObject, Codable {
+class NauticalFlagJSON: ObservableObject, Codable {
     @Published var id: String = ""
     @Published var mnemonic: String = ""
     @Published var media_url: String = ""
