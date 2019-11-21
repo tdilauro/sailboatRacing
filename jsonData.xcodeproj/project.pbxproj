@@ -28,6 +28,8 @@
 		C489480C238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4894806238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift */; };
 		C489480D238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4894807238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift */; };
 		C489480F238636AA003A9962 /* NauticalFlag-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489480E238636AA003A9962 /* NauticalFlag-extension.swift */; };
+		C489481123865154003A9962 /* NauticalFlagCategories-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489481023865154003A9962 /* NauticalFlagCategories-extension.swift */; };
+		C4894813238653E3003A9962 /* NauticalFlagImage-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4894812238653E3003A9962 /* NauticalFlagImage-extension.swift */; };
 		C4B17FF42383BEEF0091F26A /* String-matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B17FF32383BEEF0091F26A /* String-matches.swift */; };
 		C4B17FF62383BF5B0091F26A /* UIImage-downloadFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B17FF52383BF5B0091F26A /* UIImage-downloadFrom.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,8 @@
 		C4894806238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagCategory+CoreDataClass.swift"; path = "jsonData/CoreDataModels/NauticalFlagCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C4894807238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagCategory+CoreDataProperties.swift"; path = "jsonData/CoreDataModels/NauticalFlagCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C489480E238636AA003A9962 /* NauticalFlag-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlag-extension.swift"; sourceTree = "<group>"; };
+		C489481023865154003A9962 /* NauticalFlagCategories-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlagCategories-extension.swift"; sourceTree = "<group>"; };
+		C4894812238653E3003A9962 /* NauticalFlagImage-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlagImage-extension.swift"; sourceTree = "<group>"; };
 		C4B17FF32383BEEF0091F26A /* String-matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-matches.swift"; sourceTree = "<group>"; };
 		C4B17FF52383BF5B0091F26A /* UIImage-downloadFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-downloadFrom.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,7 +78,6 @@
 		C41E9F5C2380784700E75B9D = {
 			isa = PBXGroup;
 			children = (
-				C489480E238636AA003A9962 /* NauticalFlag-extension.swift */,
 				C4894802238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift */,
 				C4894803238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift */,
 				C4894804238634DA003A9962 /* NauticalFlag+CoreDataClass.swift */,
@@ -149,6 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				C48947FE23861AB7003A9962 /* jsonData.xcdatamodeld */,
+				C489480E238636AA003A9962 /* NauticalFlag-extension.swift */,
+				C489481023865154003A9962 /* NauticalFlagCategories-extension.swift */,
+				C4894812238653E3003A9962 /* NauticalFlagImage-extension.swift */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 				C489480A238634DA003A9962 /* NauticalFlag+CoreDataClass.swift in Sources */,
 				C48947FD23851446003A9962 /* PersistentContainerManager.swift in Sources */,
 				C489480C238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift in Sources */,
+				C489481123865154003A9962 /* NauticalFlagCategories-extension.swift in Sources */,
+				C4894813238653E3003A9962 /* NauticalFlagImage-extension.swift in Sources */,
 				C48947C22384A7B5003A9962 /* NauticalFlagsViewModel.swift in Sources */,
 				C489480B238634DA003A9962 /* NauticalFlag+CoreDataProperties.swift in Sources */,
 				C4894809238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift in Sources */,
