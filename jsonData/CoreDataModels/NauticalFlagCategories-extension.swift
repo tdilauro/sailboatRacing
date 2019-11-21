@@ -20,7 +20,7 @@ extension NauticalFlagCategory {
     }
 
     var flagList: [NauticalFlag] {
-        let set = flag as? Set<NauticalFlag> ?? []
+        let set = flags as? Set<NauticalFlag> ?? []
 
         return set.sorted {
             $0.wrappedId < $1.wrappedId

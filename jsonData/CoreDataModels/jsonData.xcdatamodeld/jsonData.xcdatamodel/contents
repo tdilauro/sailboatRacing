@@ -3,7 +3,7 @@
     <entity name="NauticalFlag" representedClassName="NauticalFlag" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="mnemonic" optional="YES" attributeType="String"/>
-        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlagCategory" inverseName="flag" inverseEntity="NauticalFlagCategory"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlagCategory" inverseName="flags" inverseEntity="NauticalFlagCategory"/>
         <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlagImage" inverseName="flag" inverseEntity="NauticalFlagImage"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -14,7 +14,7 @@
     <entity name="NauticalFlagCategory" representedClassName="NauticalFlagCategory" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="label" optional="YES" attributeType="String"/>
-        <relationship name="flag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NauticalFlag" inverseName="category" inverseEntity="NauticalFlag"/>
+        <relationship name="flags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NauticalFlag" inverseName="category" inverseEntity="NauticalFlag"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="category"/>
@@ -28,8 +28,8 @@
         <relationship name="flag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlag" inverseName="image" inverseEntity="NauticalFlag"/>
     </entity>
     <elements>
-        <element name="NauticalFlag" positionX="-63" positionY="-18" width="128" height="103"/>
-        <element name="NauticalFlagCategory" positionX="-54" positionY="9" width="128" height="88"/>
-        <element name="NauticalFlagImage" positionX="-45" positionY="45" width="128" height="103"/>
+        <element name="NauticalFlag" positionX="-152.3671875" positionY="-289.734375" width="128" height="103"/>
+        <element name="NauticalFlagCategory" positionX="31.5625" positionY="-338.89453125" width="128" height="88"/>
+        <element name="NauticalFlagImage" positionX="36.61328125" positionY="-186.078125" width="128" height="103"/>
     </elements>
 </model>

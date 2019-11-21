@@ -2,7 +2,7 @@
 //  NauticalFlagCategory+CoreDataProperties.swift
 //  jsonData
 //
-//  Created by Tim DiLauro on 11/20/19.
+//  Created by Tim DiLauro on 11/21/19.
 //  Copyright © 2019 Five Lions. All rights reserved.
 //
 //
@@ -19,23 +19,23 @@ extension NauticalFlagCategory {
 
     @NSManaged public var category: String?
     @NSManaged public var label: String?
-    @NSManaged public var flag: NSSet?
+    @NSManaged public var flags: NSSet?
 
 }
 
-// MARK: Generated accessors for flag
+// MARK: Generated accessors for flags
 extension NauticalFlagCategory {
 
-    @objc(addFlagObject:)
-    @NSManaged public func addToFlag(_ value: NauticalFlag)
+    @objc(addFlagsObject:)
+    @NSManaged public func addToFlags(_ value: NauticalFlag)
 
-    @objc(removeFlagObject:)
-    @NSManaged public func removeFromFlag(_ value: NauticalFlag)
+    @objc(removeFlagsObject:)
+    @NSManaged public func removeFromFlags(_ value: NauticalFlag)
 
-    @objc(addFlag:)
-    @NSManaged public func addToFlag(_ values: NSSet)
+    @objc(addFlags:)
+    @NSManaged public func addToFlags(_ values: NSSet)
 
-    @objc(removeFlag:)
-    @NSManaged public func removeFromFlag(_ values: NSSet)
+    @objc(removeFlags:)
+    @NSManaged public func removeFromFlags(_ values: NSSet)
 
 }
