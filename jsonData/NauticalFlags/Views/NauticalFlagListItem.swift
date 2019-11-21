@@ -20,11 +20,10 @@ struct NauticalFlagListItem: View {
                     .font(.subheadline)
             }
             Spacer()
-            Text("Image Goes Here")
-//            Image(uiImage: UIImage(data: flag.wrappedImage.imageData) ?? UIImage())
-//                .resizable()
-//                .scaledToFit()
-//                .frame(height: 40)
+            Image(uiImage: UIImage(data: flag.wrappedImage.imageData) ?? UIImage())
+                .resizable()
+                .scaledToFit()
+                .frame(height: 40)
         }
     }
 

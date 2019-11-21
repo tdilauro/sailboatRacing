@@ -52,7 +52,7 @@ class NauticalFlagsImporter {
                 let i = NauticalFlagImage(context: moc)
                 i.type = String(flag.media_url.split(separator: ".").last ?? Substring(""))
                 i.url = flag.media_url
-                i.blob = flag.uiImage.pngData()
+                i.blob = flag.imageData
 
                 let f = NauticalFlag(context: moc)
                 f.id = flag.id
@@ -124,7 +124,7 @@ class NauticalFlagJSON: ObservableObject, Codable {
     @Published var id: String = ""
     @Published var mnemonic: String = ""
     @Published var media_url: String = ""
-    @Published var uiImage = UIImage()
+    @Published var imageData = Data()
 
     init() {}
 
@@ -133,10 +133,8 @@ class NauticalFlagJSON: ObservableObject, Codable {
         id = try container.decode(String.self, forKey: .id)
         mnemonic = try container.decode(String.self, forKey: .mnemonic)
         media_url = try container.decode(String.self, forKey: .media_url)
-        DispatchQueue.global(qos: .userInitiated).async {
-            if let img = UIImage(downloadFrom: self.media_url) {
-                DispatchQueue.main.async { self.uiImage = img }
-            }
+        if let url = URL(string: self.media_url), let data = try? Data(contentsOf: url) {
+            self.imageData = data
         }
     }
 
