@@ -14,6 +14,7 @@ struct NauticalFlagsListView: View {
     var jsonURL: String
 
     @Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectModel) var moModel
     @FetchRequest(entity: NauticalFlagCategory.entity(), sortDescriptors: []) var categories: FetchedResults<NauticalFlagCategory>
 
     @State private var sectionState: [Int: Bool] = [:]
@@ -47,14 +48,16 @@ struct NauticalFlagsListView: View {
                     }
                 }
             }
-            .onAppear {
-                self.flagsVM.loadData(apiURL: self.jsonURL)
-            }
             .listStyle(GroupedListStyle())
-            .navigationBarTitle("Nautical Flags")
-            .navigationBarItems(trailing: Button(action: {
-                self.flagsVM.loadData(apiURL: self.jsonURL)
-            }, label: { Text("Load Data") }))
+                .navigationBarTitle("Nautical Flags")
+                .navigationBarItems(
+                    leading: Button(action: {
+                        NauticalFlagsImporter().purgeData(managedObjectContext: self.moc,
+                                                          managedObjectModel: self.moModel)
+                    }, label: { Text("Purge Data") }),
+                    trailing: Button(action: {
+                        NauticalFlagsImporter().importJSON(from: self.jsonURL, into: self.moc)
+                    }, label: { Text("Import Data") }))
         }
     }
 }

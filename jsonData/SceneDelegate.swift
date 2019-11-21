@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -22,10 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create the SwiftUI view that provides the window contents.
 //        let contentView = ContentView()
         // setup for Core Data
-        let context = PersistentContainerManager().persistentContainer.viewContext
-        let contentView = ContentView().environment(\.managedObjectContext, context)
-
-
+        let persistentContainerManager = PersistentContainerManager()
+        let context = persistentContainerManager.persistentContainer.viewContext
+        let model = persistentContainerManager.persistentContainer.managedObjectModel
+        let contentView = ContentView()
+            .environment(\.managedObjectContext, context)
+            .environment(\.managedObjectModel, model)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
