@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19B88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="NauticalFlag" representedClassName="NauticalFlag" syncable="YES" codeGenerationType="class">
+    <entity name="NauticalFlag" representedClassName="NauticalFlag" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="mnemonic" optional="YES" attributeType="String"/>
-        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlagCategory" inverseName="nauticalFlag" inverseEntity="NauticalFlagCategory"/>
-        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlagImage"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlagCategory" inverseName="flag" inverseEntity="NauticalFlagCategory"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlagImage" inverseName="flag" inverseEntity="NauticalFlagImage"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="NauticalFlagCategory" representedClassName="NauticalFlagCategory" syncable="YES" codeGenerationType="class">
+    <entity name="NauticalFlagCategory" representedClassName="NauticalFlagCategory" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="label" optional="YES" attributeType="String"/>
-        <relationship name="nauticalFlag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NauticalFlag" inverseName="category" inverseEntity="NauticalFlag"/>
+        <relationship name="flag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NauticalFlag" inverseName="category" inverseEntity="NauticalFlag"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="category"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="NauticalFlagImage" representedClassName="NauticalFlagImage" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute" optional="YES" attributeType="Binary"/>
+    <entity name="NauticalFlagImage" representedClassName="NauticalFlagImage" syncable="YES">
+        <attribute name="blob" optional="YES" attributeType="Binary"/>
         <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="flag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlag" inverseName="image" inverseEntity="NauticalFlag"/>
     </entity>
     <elements>
         <element name="NauticalFlag" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="NauticalFlagCategory" positionX="-54" positionY="9" width="128" height="88"/>
-        <element name="NauticalFlagImage" positionX="-45" positionY="45" width="128" height="73"/>
+        <element name="NauticalFlagImage" positionX="-45" positionY="45" width="128" height="103"/>
     </elements>
 </model>
