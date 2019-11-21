@@ -7,6 +7,78 @@
 //
 
 import UIKit
+import CoreData
+
+class NauticalFlagsImporter {
+    var flagCategories: [FlagCategoryJSON] = []
+
+    func importJSON(from apiURL: String, into moc: NSManagedObjectContext) {
+        print("Importing data from \(apiURL)")
+        guard let url = URL(string: apiURL) else {
+            print("Invalid URL: '\(apiURL)'")
+            return
+        }
+
+        print("Connecting to \(apiURL)")
+        let request = URLRequest(url: url)
+        URLSession.shared.dataTask(with: request) {data, response, error in
+            guard let data = data else {
+                print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
+                return
+            }
+
+            do {
+                let decodedData = try JSONDecoder().decode(FlagCategoriesJSON.self, from: data)
+                self.flagCategories = decodedData
+                self.loadDatabase(managedObjectContext: moc)
+            } catch {
+                print(error)
+            }
+
+        }.resume()
+    }
+
+    private func loadDatabase(managedObjectContext moc: NSManagedObjectContext) {
+        print("Loading database...", terminator: "")
+        for category in flagCategories {
+            print(" category: \(category.category) (\(category.flags.count) flags)")
+            let cat = NauticalFlagCategory(context: moc)
+            cat.label = category.category.capitalized
+            cat.category = category.category
+
+            for flag in category.flags {
+                print(" flag id: \(flag.id) \(flag.mnemonic)")
+
+                let i = NauticalFlagImage(context: moc)
+                i.type = String(flag.media_url.split(separator: ".").last ?? Substring(""))
+                i.url = flag.media_url
+                i.blob = flag.uiImage.pngData()
+
+                let f = NauticalFlag(context: moc)
+                f.id = flag.id
+                f.mnemonic = flag.mnemonic
+                f.category = cat
+                f.image = i
+
+            }
+        }
+        print("...done")
+
+
+        if moc.hasChanges {
+            print("moc.hasChanges==true")
+            do {
+                try moc.save()
+            } catch {
+                print("Error importing nautical flag JSON data: \(error)")
+            }
+        } else {
+            print("moc.hasChanges==false")
+
+        }
+    }
+
+}
 
 
 typealias FlagCategoriesJSON = [FlagCategoryJSON]

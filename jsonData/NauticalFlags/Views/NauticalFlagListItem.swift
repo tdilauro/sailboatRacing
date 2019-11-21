@@ -9,37 +9,23 @@
 import SwiftUI
 
 struct NauticalFlagListItem: View {
-    @ObservedObject var flag: NauticalFlagJSON
+    var flag: NauticalFlag
 
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(flag.id)
+                Text(flag.wrappedId)
                     .font(.headline)
-                Text(flag.mnemonic)
+                Text(flag.wrappedMnemonic)
                     .font(.subheadline)
             }
             Spacer()
-            Image(uiImage: flag.uiImage)
-                .resizable()
-                .scaledToFit()
-                .frame(height: 40)
+            Text("Image Goes Here")
+//            Image(uiImage: UIImage(data: flag.wrappedImage.imageData) ?? UIImage())
+//                .resizable()
+//                .scaledToFit()
+//                .frame(height: 40)
         }
     }
 
-}
-
-
-struct NauticalFlagListItem_Previews: PreviewProvider {
-    @ObservedObject static var flag: NauticalFlagJSON = {
-        let flag = NauticalFlagJSON()
-        flag.id = "A"
-        flag.mnemonic = "Alfa"
-        flag.media_url = ""
-        return flag
-    }()
-
-    static var previews: some View {
-        return NauticalFlagListItem(flag: flag)
-    }
 }

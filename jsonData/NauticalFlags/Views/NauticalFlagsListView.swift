@@ -13,9 +13,9 @@ struct NauticalFlagsListView: View {
     @ObservedObject var flagsVM: NauticalFlagsViewModel
     var jsonURL: String
 
-//    private let jsonURL = "http://127.0.0.1:8000/nautical-flags-with-media.json"
-//    @ObservedObject var flagsVM = NauticalFlagsViewModel()
-    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: NauticalFlagCategory.entity(), sortDescriptors: []) var categories: FetchedResults<NauticalFlagCategory>
+
     @State private var sectionState: [Int: Bool] = [:]
 
 
@@ -24,14 +24,14 @@ struct NauticalFlagsListView: View {
     }
 
     func sectionName(_ section: Int) -> String {
-        flagsVM.flagCategories[section].category
+        categories[section].wrappedLabel
     }
 
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(0..<self.flagsVM.flagCategories.count, id: \.self) { section in
+                ForEach(0..<self.categories.count, id: \.self) { section in
                     Section(header:
                         NauticalFlagSectionHeader(title: self.sectionName(section), isExpanded: self.isExpanded(section))
                         .contentShape(Rectangle())
@@ -39,7 +39,7 @@ struct NauticalFlagsListView: View {
                             self.sectionState[section] = !self.isExpanded(section)
                     }) {
                         if self.isExpanded(section) {
-                            ForEach((self.flagsVM.flagCategories[section].flags).indexed(), id: \.1.id) { row, flag in
+                            ForEach(self.categories[section].flagList.indexed(), id: \.1.wrappedId) { row, flag in
                                 NauticalFlagListItem(flag: flag)
                                     .listRowBackground(Color.secondary.opacity(row % 2 == 0 ? 0.8 : 0.5))
                             }
