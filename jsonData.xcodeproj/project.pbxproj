@@ -20,6 +20,7 @@
 		C48947C42384ABFE003A9962 /* NauticalFlagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947C32384ABFE003A9962 /* NauticalFlagsListView.swift */; };
 		C48947C62384AE71003A9962 /* NauticalFlagJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947C52384AE71003A9962 /* NauticalFlagJSON.swift */; };
 		C48947FD23851446003A9962 /* PersistentContainerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947FC23851446003A9962 /* PersistentContainerManager.swift */; };
+		C489480023861AB7003A9962 /* jsonData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C48947FE23861AB7003A9962 /* jsonData.xcdatamodeld */; };
 		C4B17FF42383BEEF0091F26A /* String-matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B17FF32383BEEF0091F26A /* String-matches.swift */; };
 		C4B17FF62383BF5B0091F26A /* UIImage-downloadFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B17FF52383BF5B0091F26A /* UIImage-downloadFrom.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		C48947C32384ABFE003A9962 /* NauticalFlagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NauticalFlagsListView.swift; sourceTree = "<group>"; };
 		C48947C52384AE71003A9962 /* NauticalFlagJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NauticalFlagJSON.swift; sourceTree = "<group>"; };
 		C48947FC23851446003A9962 /* PersistentContainerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentContainerManager.swift; sourceTree = "<group>"; };
+		C48947FF23861AB7003A9962 /* jsonData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jsonData.xcdatamodel; sourceTree = "<group>"; };
 		C4B17FF32383BEEF0091F26A /* String-matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-matches.swift"; sourceTree = "<group>"; };
 		C4B17FF52383BF5B0091F26A /* UIImage-downloadFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-downloadFrom.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				C48947F92385119E003A9962 /* CoreData */,
+				C489480123862356003A9962 /* CoreDataModels */,
 				C4B1800423849E090091F26A /* NauticalFlags */,
 				C4B17FF22383BEB40091F26A /* Extensions */,
 				C41E9F7C2383130600E75B9D /* RandomAccessCollection */,
@@ -119,6 +122,14 @@
 				C48947FC23851446003A9962 /* PersistentContainerManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C489480123862356003A9962 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				C48947FE23861AB7003A9962 /* jsonData.xcdatamodeld */,
+			);
+			path = CoreDataModels;
 			sourceTree = "<group>";
 		};
 		C4B17FF22383BEB40091F26A /* Extensions */ = {
@@ -238,6 +249,7 @@
 				C48947C62384AE71003A9962 /* NauticalFlagJSON.swift in Sources */,
 				C41E9F692380784700E75B9D /* AppDelegate.swift in Sources */,
 				C48947C42384ABFE003A9962 /* NauticalFlagsListView.swift in Sources */,
+				C489480023861AB7003A9962 /* jsonData.xcdatamodeld in Sources */,
 				C41E9F6B2380784700E75B9D /* SceneDelegate.swift in Sources */,
 				C41E9F6D2380784700E75B9D /* ContentView.swift in Sources */,
 				C4B17FF62383BF5B0091F26A /* UIImage-downloadFrom.swift in Sources */,
@@ -434,6 +446,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C48947FE23861AB7003A9962 /* jsonData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C48947FF23861AB7003A9962 /* jsonData.xcdatamodel */,
+			);
+			currentVersion = C48947FF23861AB7003A9962 /* jsonData.xcdatamodel */;
+			path = jsonData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C41E9F5D2380784700E75B9D /* Project object */;
 }
