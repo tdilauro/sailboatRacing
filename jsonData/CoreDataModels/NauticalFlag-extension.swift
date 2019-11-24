@@ -6,9 +6,20 @@
 //  Copyright © 2019 Five Lions. All rights reserved.
 //
 
-import Foundation
+import CoreData
 
 extension NauticalFlag {
+
+    class func allItemsFetchRequest() -> NSFetchRequest<NauticalFlag> {
+        let request = NSFetchRequest<NauticalFlag>(entityName: "NauticalFlag")
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "category.category", ascending: true),
+            NSSortDescriptor(key: "id", ascending: true)
+        ]
+        return request
+    }
+
+    // MARK: Wrapped Properties
 
     var wrappedId: String {
         id ?? ""

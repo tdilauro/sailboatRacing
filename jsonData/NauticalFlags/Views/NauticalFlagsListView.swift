@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct NauticalFlagsListView: View {
-    @ObservedObject var flagsVM: NauticalFlagsViewModel
+    var flagsVM: NauticalFlagListViewModel
     var jsonURL: String
 
     @Environment(\.managedObjectContext) var moc
@@ -62,8 +62,8 @@ struct NauticalFlagsListView: View {
     }
 }
 
-struct NauticalFlagsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        NauticalFlagsListView(flagsVM: NauticalFlagsViewModel(), jsonURL: "http://127.0.0.1:8000/nautical-flags-with-media.json")
-    }
-}
+//struct NauticalFlagsListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NauticalFlagsListView(flagsVM: NauticalFlagsListViewModel(), jsonURL: "http://127.0.0.1:8000/nautical-flags-with-media.json")
+//    }
+//}
