@@ -2,7 +2,7 @@
 //  NauticalFlag+CoreDataProperties.swift
 //  jsonData
 //
-//  Created by Tim DiLauro on 11/20/19.
+//  Created by Tim DiLauro on 11/24/19.
 //  Copyright © 2019 Five Lions. All rights reserved.
 //
 //

@@ -12,20 +12,23 @@ import Combine
 class NauticalFlagListViewModel {
     private var cancellables = Set<AnyCancellable>()
     private let context: NSManagedObjectContext
-    @Published private(set) var itemViewModels: [NauticalFlagViewModel] = []
 
-//    private var
+    @Published private(set) var sections: [NauticalFlagSectionViewModel] = []
 
-    var itemChanges: AnyPublisher<CollectionDifference<NauticalFlag>, Never> {
-        context.changesPublisher(for: NauticalFlag.allItemsFetchRequest())
+    var sectionCount: Int {
+        sections.count
+    }
+
+    var itemChanges: AnyPublisher<CollectionDifference<NauticalFlagCategory>, Never> {
+        context.changesPublisher(for: NauticalFlagCategory.allCategoryFetchRequest())
             .catch { _ in Empty() }
             .map {
                 for change in $0 {
                     switch change {
                     case .remove(let offset, let obj, _):
-                        print("remove at offset: \(offset). \(obj.wrappedId) \(obj.category!.category ?? "unknown category")")
+                        print("remove at offset: \(offset). \(obj.wrappedCategory) \(obj.wrappedLabel)")
                     case .insert(let offset, let obj, _):
-                        print("insert at offset: \(offset). \(obj.wrappedId) \(obj.category!.category ?? "unknown category")")
+                        print("insert at offset: \(offset). \(obj.wrappedCategory) \(obj.wrappedLabel)")
                     }
                 }
                 return $0
@@ -36,8 +39,10 @@ class NauticalFlagListViewModel {
     init(context: NSManagedObjectContext) {
         self.context = context
 
-        $itemViewModels.applyingChanges(itemChanges) { flag in
-            NauticalFlagViewModel(item: flag)
-        }.assign(to: \.itemViewModels, on: self).store(in: &cancellables)
+        $sections.applyingChanges(itemChanges) { section in
+            NauticalFlagSectionViewModel(section)
+        }
+        .assign(to: \.sections, on: self)
+        .store(in: &cancellables)
     }
 }

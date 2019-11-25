@@ -9,18 +9,18 @@
 import SwiftUI
 
 struct NauticalFlagListItem: View {
-    var flag: NauticalFlag
+    var flagVM: NauticalFlagViewModel
 
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(flag.wrappedId)
+                Text(flagVM.id)
                     .font(.headline)
-                Text(flag.wrappedMnemonic)
+                Text(flagVM.mnemonic)
                     .font(.subheadline)
             }
             Spacer()
-            Image(uiImage: UIImage(data: flag.wrappedImage.imageData) ?? UIImage())
+            Image(uiImage: UIImage(data: flagVM.image.imageData) ?? UIImage())
                 .resizable()
                 .scaledToFit()
                 .frame(height: 40)

@@ -17,31 +17,27 @@ struct NauticalFlagsListView: View {
     @Environment(\.managedObjectModel) var moModel
     @FetchRequest(entity: NauticalFlagCategory.entity(), sortDescriptors: []) var categories: FetchedResults<NauticalFlagCategory>
 
-    @State private var sectionState: [Int: Bool] = [:]
+    @State private var sectionState: [NauticalFlagSectionViewModel: Bool] = [:]
 
 
-    func isExpanded(_ section: Int) -> Bool {
+    func isExpanded(_ section: NauticalFlagSectionViewModel) -> Bool {
         sectionState[section] ?? true
-    }
-
-    func sectionName(_ section: Int) -> String {
-        categories[section].wrappedLabel
     }
 
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(0..<self.categories.count, id: \.self) { section in
+                ForEach(flagsVM.sections, id: \.self) { (sectionVM: NauticalFlagSectionViewModel) in
                     Section(header:
-                        NauticalFlagSectionHeader(title: self.sectionName(section), isExpanded: self.isExpanded(section))
+                        NauticalFlagSectionHeader(title: sectionVM.label, isExpanded: self.isExpanded(sectionVM))
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            self.sectionState[section] = !self.isExpanded(section)
+                            self.sectionState[sectionVM] = !self.isExpanded(sectionVM)
                     }) {
-                        if self.isExpanded(section) {
-                            ForEach(self.categories[section].flagList.indexed(), id: \.1.wrappedId) { row, flag in
-                                NauticalFlagListItem(flag: flag)
+                        if self.isExpanded(sectionVM) {
+                            ForEach(sectionVM.flags.indexed(), id: \.1.id) { row, flagVM in
+                                NauticalFlagListItem(flagVM: flagVM)
                                     .listRowBackground(Color.secondary.opacity(row % 2 == 0 ? 0.8 : 0.5))
                             }
                         }

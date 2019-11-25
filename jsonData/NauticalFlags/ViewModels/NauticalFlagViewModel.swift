@@ -9,9 +9,26 @@
 import Foundation
 
 class NauticalFlagViewModel {
-    let item: NauticalFlag
+    let flag: NauticalFlag
 
+    var id: String {
+        flag.wrappedId
+    }
+
+    var mnemonic: String {
+        flag.wrappedMnemonic
+    }
+
+    var category: NauticalFlagCategory {
+        flag.wrappedCategory
+    }
+
+    var image: NauticalFlagImage {
+        flag.wrappedImage
+    }
+
+    
     init(item: NauticalFlag) {
-        self.item = item
+        self.flag = item
     }
 }

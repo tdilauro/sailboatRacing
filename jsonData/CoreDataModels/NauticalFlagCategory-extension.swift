@@ -8,8 +8,19 @@
 
 
 import Foundation
+import CoreData
 
 extension NauticalFlagCategory {
+
+    class func allCategoryFetchRequest() -> NSFetchRequest<NauticalFlagCategory> {
+        let request = NSFetchRequest<NauticalFlagCategory>(entityName: "NauticalFlagCategory")
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "category", ascending: true)
+        ]
+        return request
+    }
+
+    // MARK: Wrapped Properties
 
     var wrappedCategory: String {
         category ?? "unnamed"

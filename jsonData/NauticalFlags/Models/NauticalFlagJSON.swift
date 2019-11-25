@@ -66,9 +66,10 @@ class NauticalFlagsImporter {
 
 
         if moc.hasChanges {
-            print("moc.hasChanges==true")
+            print("moc.hasChanges==true, saving...")
             do {
                 try moc.save()
+                print("moc saved")
             } catch {
                 print("Error importing nautical flag JSON data: \(error)")
             }
@@ -76,6 +77,7 @@ class NauticalFlagsImporter {
             print("moc.hasChanges==false")
 
         }
+
     }
 
     func purgeData(managedObjectContext moc: NSManagedObjectContext,
