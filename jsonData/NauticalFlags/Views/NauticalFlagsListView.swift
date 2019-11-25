@@ -43,15 +43,22 @@ struct NauticalFlagsListView: View {
                 }
             }
             .listStyle(GroupedListStyle())
-                .navigationBarTitle("Nautical Flags")
-                .navigationBarItems(
-                    leading: Button(action: {
-                        NauticalFlagsImporter().purgeData(managedObjectContext: self.moc,
-                                                          managedObjectModel: self.moModel)
-                    }, label: { Text("Purge Data") }),
-                    trailing: Button(action: {
-                        NauticalFlagsImporter().importJSON(from: self.jsonURL, into: self.moc)
-                    }, label: { Text("Import Data") }))
+            .navigationBarTitle("Nautical Flags")
+            .navigationBarItems(
+                leading: HStack {
+                    if flagsVM.sectionCount > 0 {
+                        Button(action: {
+                            NauticalFlagsImporter().purgeData(managedObjectContext: self.moc,
+                                                              managedObjectModel: self.moModel)
+                        }, label: { Text("Purge Data") })
+                    } else {
+                        Button(action: {
+                            NauticalFlagsImporter().importJSON(from: self.jsonURL, into: self.moc)
+                        }, label: { Text("Import Data") })
+                    }
+
+                }
+            )
         }
     }
 }
