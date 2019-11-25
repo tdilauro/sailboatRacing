@@ -9,7 +9,7 @@
 import CoreData
 import Combine
 
-class NauticalFlagListViewModel {
+class NauticalFlagListViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let context: NSManagedObjectContext
 
