@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19B88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="NauticalFlag" representedClassName="NauticalFlag" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
         <attribute name="mnemonic" optional="YES" attributeType="String"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlagCategory" inverseName="flags" inverseEntity="NauticalFlagCategory"/>
-        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlagImage" inverseName="flag" inverseEntity="NauticalFlagImage"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="NauticalFlagImage" inverseName="flag" inverseEntity="NauticalFlagImage"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -12,7 +12,7 @@
         </uniquenessConstraints>
     </entity>
     <entity name="NauticalFlagCategory" representedClassName="NauticalFlagCategory" syncable="YES">
-        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="category" attributeType="String"/>
         <attribute name="label" optional="YES" attributeType="String"/>
         <relationship name="flags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NauticalFlag" inverseName="category" inverseEntity="NauticalFlag"/>
         <uniquenessConstraints>
@@ -25,7 +25,7 @@
         <attribute name="blob" optional="YES" attributeType="Binary"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
-        <relationship name="flag" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NauticalFlag" inverseName="image" inverseEntity="NauticalFlag"/>
+        <relationship name="flag" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="NauticalFlag" inverseName="image" inverseEntity="NauticalFlag"/>
     </entity>
     <elements>
         <element name="NauticalFlag" positionX="-152.3671875" positionY="-289.734375" width="128" height="103"/>
