@@ -15,7 +15,10 @@ class NauticalFlagSectionViewModel {
 //    var isExpanded = true
 
     var flags: [NauticalFlagViewModel] {
-        section.flagList.map { NauticalFlagViewModel(item: $0) }
+        let x = section.flagList.map { NauticalFlagViewModel(item: $0) }
+        print(">>> Section \(category) (\(label))")
+        x.forEach( { print("    \($0.id) (\($0.mnemonic))") } )
+        return x
     }
 
     var category: String {

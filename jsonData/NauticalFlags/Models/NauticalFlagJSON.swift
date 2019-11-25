@@ -67,12 +67,15 @@ class NauticalFlagsImporter {
 
         if moc.hasChanges {
             print("moc.hasChanges==true, saving...")
+            let mergePolicy = moc.mergePolicy
             do {
+                moc.mergePolicy = NSMergePolicy(merge: NSMergePolicyType.mergeByPropertyObjectTrumpMergePolicyType)
                 try moc.save()
                 print("moc saved")
             } catch {
                 print("Error importing nautical flag JSON data: \(error)")
             }
+            moc.mergePolicy = mergePolicy
         } else {
             print("moc.hasChanges==false")
 
@@ -93,19 +96,16 @@ class NauticalFlagsImporter {
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         deleteRequest.resultType = .resultTypeObjectIDs
-        do
-        {
+        do {
             let result = try moc.execute(deleteRequest) as! NSBatchDeleteResult
             print("Merge changes, if possible")
             if let deletedObjectIds = result.result as? [NSManagedObjectID] {
-                print("Merging changes", terminator: "...")
+                print("Merging changes (\(deletedObjectIds.count))", terminator: "...")
                 let changes: [AnyHashable : Any] = [NSDeletedObjectsKey : deletedObjectIds]
                 NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes , into: [moc])
                 print("...done")
             }
-        }
-        catch
-        {
+        } catch {
             print ("Error purging data for entity '\(entityName)': \(error.localizedDescription)")
         }
     }

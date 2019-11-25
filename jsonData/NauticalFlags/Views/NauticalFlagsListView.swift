@@ -15,12 +15,10 @@ struct NauticalFlagsListView: View {
 
     @Environment(\.managedObjectContext) var moc
     @Environment(\.managedObjectModel) var moModel
-    @FetchRequest(entity: NauticalFlagCategory.entity(), sortDescriptors: []) var categories: FetchedResults<NauticalFlagCategory>
 
-    @State private var sectionState: [NauticalFlagSectionViewModel: Bool] = [:]
+    @State private var sectionState: [Int: Bool] = [:]
 
-
-    func isExpanded(_ section: NauticalFlagSectionViewModel) -> Bool {
+    func isExpanded(_ section: Int) -> Bool {
         sectionState[section] ?? true
     }
 
@@ -28,14 +26,14 @@ struct NauticalFlagsListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(flagsVM.sections, id: \.self) { (sectionVM: NauticalFlagSectionViewModel) in
+                ForEach(flagsVM.sections.indexed(), id: \.1.label) { (sequence, sectionVM: NauticalFlagSectionViewModel) in
                     Section(header:
-                        NauticalFlagSectionHeader(title: sectionVM.label, isExpanded: self.isExpanded(sectionVM))
+                        NauticalFlagSectionHeader(title: sectionVM.label, isExpanded: self.isExpanded(sequence))
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            self.sectionState[sectionVM] = !self.isExpanded(sectionVM)
+                            self.sectionState[sequence] = !self.isExpanded(sequence)
                     }) {
-                        if self.isExpanded(sectionVM) {
+                        if self.isExpanded(sequence) {
                             ForEach(sectionVM.flags.indexed(), id: \.1.id) { row, flagVM in
                                 NauticalFlagListItem(flagVM: flagVM)
                                     .listRowBackground(Color.secondary.opacity(row % 2 == 0 ? 0.8 : 0.5))
