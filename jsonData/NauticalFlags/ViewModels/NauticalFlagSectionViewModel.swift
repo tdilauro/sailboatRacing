@@ -12,7 +12,6 @@ import Combine
 class NauticalFlagSectionViewModel {
 
     let section: NauticalFlagCategory
-//    var isExpanded = true
 
     var flags: [NauticalFlagViewModel] {
         let x = section.flagList.map { NauticalFlagViewModel(item: $0) }

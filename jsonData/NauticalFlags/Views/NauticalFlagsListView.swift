@@ -16,30 +16,12 @@ struct NauticalFlagsListView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.managedObjectModel) var moModel
 
-    @State private var sectionState: [Int: Bool] = [:]
-
-    func isExpanded(_ section: Int) -> Bool {
-        sectionState[section] ?? true
-    }
-
 
     var body: some View {
         NavigationView {
             List {
                 ForEach(flagsVM.sections.indexed(), id: \.1.label) { (sequence, sectionVM: NauticalFlagSectionViewModel) in
-                    Section(header:
-                        NauticalFlagSectionHeader(title: sectionVM.label, isExpanded: self.isExpanded(sequence))
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            self.sectionState[sequence] = !self.isExpanded(sequence)
-                    }) {
-                        if self.isExpanded(sequence) {
-                            ForEach(sectionVM.flags.indexed(), id: \.1.id) { row, flagVM in
-                                NauticalFlagListItem(flagVM: flagVM)
-                                    .listRowBackground(Color.secondary.opacity(row % 2 == 0 ? 0.8 : 0.5))
-                            }
-                        }
-                    }
+                    NauticalFlagSectionView(sectionVM: sectionVM)
                 }
             }
             .listStyle(GroupedListStyle())
@@ -56,10 +38,15 @@ struct NauticalFlagsListView: View {
                             NauticalFlagsImporter().importJSON(from: self.jsonURL, into: self.moc)
                         }, label: { Text("Import Data") })
                     }
-
-                }
+                },
+                trailing: EditButton()
             )
         }
+    }
+
+
+    func deleteItem(items: IndexSet) {
+        items.forEach({ print("deleting item \($0)") })
     }
 }
 
