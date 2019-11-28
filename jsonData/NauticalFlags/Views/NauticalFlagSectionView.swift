@@ -10,7 +10,9 @@ import SwiftUI
 
 
 struct NauticalFlagSectionView: View {
-    var sectionVM: NauticalFlagSectionViewModel
+    @ObservedObject var sectionVM: NauticalFlagSectionViewModel
+
+    @Environment(\.managedObjectContext) var moc
 
     @State private var sectionState = true
 
@@ -33,7 +35,15 @@ struct NauticalFlagSectionView: View {
 
 
     func deleteItem(items: IndexSet) {
-        items.forEach({ print("deleting item \($0): \(self.sectionVM.flags[$0].id)") })
+        items.forEach( { index in
+            let flagVM = self.sectionVM.flags[index]
+            print("deleting item \(index): \(flagVM.id)")
+            print("deleting object from context")
+//            self.sectionVM.flags.remove(at: index)
+            moc.delete(flagVM.flag)
+            try? moc.save()
+            // still need to save
+        })
     }
 }
 

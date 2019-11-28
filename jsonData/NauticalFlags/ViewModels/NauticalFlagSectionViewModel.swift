@@ -9,16 +9,12 @@
 import CoreData
 import Combine
 
-class NauticalFlagSectionViewModel {
+class NauticalFlagSectionViewModel: ObservableObject {
+    private var cancellables = Set<AnyCancellable>()
+    private let context: NSManagedObjectContext
 
     let section: NauticalFlagCategory
-
-    var flags: [NauticalFlagViewModel] {
-        let x = section.flagList.map { NauticalFlagViewModel(item: $0) }
-        print(">>> Section \(category) (\(label))")
-        x.forEach( { print("    \($0.id) (\($0.mnemonic))") } )
-        return x
-    }
+    @Published private(set) var flags: [NauticalFlagViewModel] = []
 
     var category: String {
         section.wrappedCategory
@@ -28,42 +24,36 @@ class NauticalFlagSectionViewModel {
         section.wrappedLabel
     }
 
-//    private var cancellables = Set<AnyCancellable>()
-//    private let context: NSManagedObjectContext
-//    @Published private(set) var itemViewModels: [NauticalFlagViewModel] = []
-
-//    private var
-
-//    var itemChanges: AnyPublisher<CollectionDifference<NauticalFlag>, Never> {
-//        context.changesPublisher(for: NauticalFlag.allItemsFetchRequest())
-//            .catch { _ in Empty() }
-//            .map {
-//                for change in $0 {
-//                    switch change {
-//                    case .remove(let offset, let obj, _):
-//                        print("remove at offset: \(offset). \(obj.wrappedId) \(obj.category!.category ?? "unknown category")")
-//                    case .insert(let offset, let obj, _):
-//                        print("insert at offset: \(offset). \(obj.wrappedId) \(obj.category!.category ?? "unknown category")")
-//                    }
-//                }
-//                return $0
-//            }
-//            .eraseToAnyPublisher()
-//    }
-
-
-    init(_ section: NauticalFlagCategory) {
-        self.section = section
+    var itemChanges: AnyPublisher<CollectionDifference<NauticalFlag>, Never> {
+        context.changesPublisher(for: NauticalFlag.allForCategoryFetchRequest(in: section))
+            .catch { _ in Empty() }
+            .map {
+                for change in $0 {
+                    switch change {
+                    case .remove(let offset, let obj, _):
+                        print("remove at offset: \(offset). \(obj.wrappedId) \(obj.wrappedMnemonic)")
+                    case .insert(let offset, let obj, _):
+                        print("insert at offset: \(offset). \(obj.wrappedId) \(obj.wrappedMnemonic)")
+                    }
+                }
+                return $0
+            }
+            .eraseToAnyPublisher()
     }
 
-//    init(context: NSManagedObjectContext) {
-//        self.context = context
-//
-//        $itemViewModels.applyingChanges(itemChanges) { flag in
-//            NauticalFlagViewModel(item: flag)
-//        }.assign(to: \.itemViewModels, on: self).store(in: &cancellables)
-//    }
+    
+    init(_ section: NauticalFlagCategory, context: NSManagedObjectContext) {
+        self.section = section
+        self.context = context
+
+        $flags.applyingChanges(itemChanges) { flag in
+            NauticalFlagViewModel(item: flag)
+        }
+        .assign(to: \.flags, on: self)
+        .store(in: &cancellables)
+    }
 }
+
 
 
 extension NauticalFlagSectionViewModel: Equatable {

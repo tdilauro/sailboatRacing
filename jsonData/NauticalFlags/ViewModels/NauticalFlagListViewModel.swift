@@ -40,7 +40,7 @@ class NauticalFlagListViewModel: ObservableObject {
         self.context = context
 
         $sections.applyingChanges(itemChanges) { section in
-            NauticalFlagSectionViewModel(section)
+            NauticalFlagSectionViewModel(section, context: self.context)
         }
         .assign(to: \.sections, on: self)
         .store(in: &cancellables)

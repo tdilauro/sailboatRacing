@@ -19,6 +19,16 @@ extension NauticalFlag {
         return request
     }
 
+    static func allForCategoryFetchRequest(in category: NauticalFlagCategory) -> NSFetchRequest<NauticalFlag> {
+        let request = NSFetchRequest<NauticalFlag>(entityName: "NauticalFlag")
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "id", ascending: true)
+        ]
+        request.predicate = NSPredicate(format: "category == %@", category)
+        return request
+    }
+
+
     // MARK: Wrapped Properties
 
     var wrappedId: String {
