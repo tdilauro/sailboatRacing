@@ -63,8 +63,9 @@ extension NauticalFlagListViewModel {
     }
 
     func purgeData(managedObjectModel: NSManagedObjectModel) {
-        NauticalFlagsImporter().purgeData(managedObjectContext: self.context,
-                                      managedObjectModel: managedObjectModel)
+        NauticalFlagsDatabaseUtilities().purgeData(
+            managedObjectContext: self.context,
+            managedObjectModel: managedObjectModel)
     }
 
 }

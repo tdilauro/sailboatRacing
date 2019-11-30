@@ -38,6 +38,7 @@
 		C4A96985238CC743003B9539 /* NauticalFlagSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A96984238CC743003B9539 /* NauticalFlagSectionView.swift */; };
 		C4B17FF42383BEEF0091F26A /* String-matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B17FF32383BEEF0091F26A /* String-matches.swift */; };
 		C4B17FF62383BF5B0091F26A /* UIImage-downloadFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B17FF52383BF5B0091F26A /* UIImage-downloadFrom.swift */; };
+		C4FECFF6239217F800FA46EB /* NauticalFlagsDatabaseUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FECFF5239217F800FA46EB /* NauticalFlagsDatabaseUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		C4A96984238CC743003B9539 /* NauticalFlagSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NauticalFlagSectionView.swift; sourceTree = "<group>"; };
 		C4B17FF32383BEEF0091F26A /* String-matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-matches.swift"; sourceTree = "<group>"; };
 		C4B17FF52383BF5B0091F26A /* UIImage-downloadFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-downloadFrom.swift"; sourceTree = "<group>"; };
+		C4FECFF5239217F800FA46EB /* NauticalFlagsDatabaseUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NauticalFlagsDatabaseUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				C48947FC23851446003A9962 /* PersistentContainerManager.swift */,
+				C4FECFF5239217F800FA46EB /* NauticalFlagsDatabaseUtilities.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				C48947BC23849F84003A9962 /* NauticalFlagListItem.swift in Sources */,
 				C489481D238B2A59003A9962 /* NauticalFlagSectionViewModel.swift in Sources */,
 				C48948172388595A003A9962 /* ManagedObjectChangesPublisher.swift in Sources */,
+				C4FECFF6239217F800FA46EB /* NauticalFlagsDatabaseUtilities.swift in Sources */,
 				C4B17FF42383BEEF0091F26A /* String-matches.swift in Sources */,
 				C48947BD23849F84003A9962 /* NauticalFlagSectionHeader.swift in Sources */,
 				C489480A238634DA003A9962 /* NauticalFlag+CoreDataClass.swift in Sources */,
