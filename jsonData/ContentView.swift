@@ -18,7 +18,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
 
     var body: some View {
-        NauticalFlagsListView(flagsVM: NauticalFlagListViewModel(context: moc), jsonURL: jsonURL)
+        NauticalFlagsListView(flagsVM: NauticalFlagListViewModel(context: moc, importURL: jsonURL))
     }
 
 }

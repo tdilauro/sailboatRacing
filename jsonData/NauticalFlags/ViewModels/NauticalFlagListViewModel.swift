@@ -12,11 +12,16 @@ import Combine
 class NauticalFlagListViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let context: NSManagedObjectContext
+    private let importURL: String?
 
     @Published private(set) var sections: [NauticalFlagSectionViewModel] = []
 
     var sectionCount: Int {
         sections.count
+    }
+
+    var isImportable: Bool {
+        importURL != nil
     }
 
     var itemChanges: AnyPublisher<CollectionDifference<NauticalFlagCategory>, Never> {
@@ -36,8 +41,9 @@ class NauticalFlagListViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }
 
-    init(context: NSManagedObjectContext) {
+    init(context: NSManagedObjectContext, importURL: String? = nil) {
         self.context = context
+        self.importURL = importURL
 
         $sections.applyingChanges(itemChanges) { section in
             NauticalFlagSectionViewModel(section, context: self.context)
@@ -50,8 +56,10 @@ class NauticalFlagListViewModel: ObservableObject {
 
 extension NauticalFlagListViewModel {
 
-    func loadData(jsonURL: String) {
-        NauticalFlagsImporter().importJSON(from: jsonURL, into: self.context)
+    func importData() {
+        if let jsonURL = self.importURL {
+            NauticalFlagsImporter().importJSON(from: jsonURL, into: self.context)
+        }
     }
 
     func purgeData(managedObjectModel: NSManagedObjectModel) {

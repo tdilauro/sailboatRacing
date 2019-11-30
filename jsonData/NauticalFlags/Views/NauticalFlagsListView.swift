@@ -11,7 +11,6 @@ import SwiftUI
 
 struct NauticalFlagsListView: View {
     @ObservedObject var flagsVM: NauticalFlagListViewModel
-    var jsonURL: String
 
     @Environment(\.managedObjectContext) var moc
     @Environment(\.managedObjectModel) var moModel
@@ -32,9 +31,9 @@ struct NauticalFlagsListView: View {
                         Button(action: {
                             self.flagsVM.purgeData(managedObjectModel: self.moModel)
                         }, label: { Text("Purge Data") })
-                    } else {
+                    } else if flagsVM.isImportable {
                         Button(action: {
-                            self.flagsVM.loadData(jsonURL: self.jsonURL)
+                            self.flagsVM.importData()
                         }, label: { Text("Import Data") })
                     }
                 },
