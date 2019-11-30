@@ -20,7 +20,6 @@
 		C48947C42384ABFE003A9962 /* NauticalFlagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947C32384ABFE003A9962 /* NauticalFlagsListView.swift */; };
 		C48947C62384AE71003A9962 /* NauticalFlagJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947C52384AE71003A9962 /* NauticalFlagJSON.swift */; };
 		C48947FD23851446003A9962 /* PersistentContainerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947FC23851446003A9962 /* PersistentContainerManager.swift */; };
-		C489480023861AB7003A9962 /* sailboatRacing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C48947FE23861AB7003A9962 /* sailboatRacing.xcdatamodeld */; };
 		C4894808238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4894802238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift */; };
 		C4894809238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4894803238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift */; };
 		C489480A238634DA003A9962 /* NauticalFlag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4894804238634DA003A9962 /* NauticalFlag+CoreDataClass.swift */; };
@@ -38,6 +37,7 @@
 		C4A96985238CC743003B9539 /* NauticalFlagSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A96984238CC743003B9539 /* NauticalFlagSectionView.swift */; };
 		C4B17FF42383BEEF0091F26A /* String-matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B17FF32383BEEF0091F26A /* String-matches.swift */; };
 		C4B17FF62383BF5B0091F26A /* UIImage-downloadFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B17FF52383BF5B0091F26A /* UIImage-downloadFrom.swift */; };
+		C4B876B02392337E00260A1A /* sailboatRacing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4B876A52392337E00260A1A /* sailboatRacing.xcdatamodeld */; };
 		C4FECFF6239217F800FA46EB /* NauticalFlagsDatabaseUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FECFF5239217F800FA46EB /* NauticalFlagsDatabaseUtilities.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,13 +57,12 @@
 		C48947C32384ABFE003A9962 /* NauticalFlagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NauticalFlagsListView.swift; sourceTree = "<group>"; };
 		C48947C52384AE71003A9962 /* NauticalFlagJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NauticalFlagJSON.swift; sourceTree = "<group>"; };
 		C48947FC23851446003A9962 /* PersistentContainerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentContainerManager.swift; sourceTree = "<group>"; };
-		C48947FF23861AB7003A9962 /* sailboatRacing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sailboatRacing.xcdatamodel; sourceTree = "<group>"; };
-		C4894802238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagImage+CoreDataClass.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlagImage+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C4894803238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagImage+CoreDataProperties.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlagImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C4894804238634DA003A9962 /* NauticalFlag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlag+CoreDataClass.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlag+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C4894805238634DA003A9962 /* NauticalFlag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlag+CoreDataProperties.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlag+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C4894806238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagCategory+CoreDataClass.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlagCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C4894807238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagCategory+CoreDataProperties.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlagCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C4894802238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlagImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C4894803238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlagImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C4894804238634DA003A9962 /* NauticalFlag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C4894805238634DA003A9962 /* NauticalFlag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C4894806238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlagCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C4894807238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlagCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C489480E238636AA003A9962 /* NauticalFlag-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlag-extension.swift"; sourceTree = "<group>"; };
 		C489481023865154003A9962 /* NauticalFlagCategory-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlagCategory-extension.swift"; sourceTree = "<group>"; };
 		C4894812238653E3003A9962 /* NauticalFlagImage-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlagImage-extension.swift"; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		C4A96984238CC743003B9539 /* NauticalFlagSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NauticalFlagSectionView.swift; sourceTree = "<group>"; };
 		C4B17FF32383BEEF0091F26A /* String-matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-matches.swift"; sourceTree = "<group>"; };
 		C4B17FF52383BF5B0091F26A /* UIImage-downloadFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-downloadFrom.swift"; sourceTree = "<group>"; };
+		C4B876A62392337E00260A1A /* jsonData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jsonData.xcdatamodel; sourceTree = "<group>"; };
 		C4FECFF5239217F800FA46EB /* NauticalFlagsDatabaseUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NauticalFlagsDatabaseUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,12 +92,6 @@
 		C41E9F5C2380784700E75B9D = {
 			isa = PBXGroup;
 			children = (
-				C4894802238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift */,
-				C4894803238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift */,
-				C4894804238634DA003A9962 /* NauticalFlag+CoreDataClass.swift */,
-				C4894805238634DA003A9962 /* NauticalFlag+CoreDataProperties.swift */,
-				C4894806238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift */,
-				C4894807238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift */,
 				C41E9F672380784700E75B9D /* sailboatRacing */,
 				C41E9F662380784700E75B9D /* Products */,
 			);
@@ -168,10 +162,9 @@
 		C489480123862356003A9962 /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
-				C48947FE23861AB7003A9962 /* sailboatRacing.xcdatamodeld */,
-				C489480E238636AA003A9962 /* NauticalFlag-extension.swift */,
-				C489481023865154003A9962 /* NauticalFlagCategory-extension.swift */,
-				C4894812238653E3003A9962 /* NauticalFlagImage-extension.swift */,
+				C4B876A52392337E00260A1A /* sailboatRacing.xcdatamodeld */,
+				C4B876B12392342A00260A1A /* Generated */,
+				C4B876B22392345C00260A1A /* LocalOverrides */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -215,6 +208,29 @@
 				C40C00E323922CC400E47AFB /* NauticalFlagListItem.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C4B876B12392342A00260A1A /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				C4894802238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift */,
+				C4894803238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift */,
+				C4894804238634DA003A9962 /* NauticalFlag+CoreDataClass.swift */,
+				C4894805238634DA003A9962 /* NauticalFlag+CoreDataProperties.swift */,
+				C4894806238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift */,
+				C4894807238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		C4B876B22392345C00260A1A /* LocalOverrides */ = {
+			isa = PBXGroup;
+			children = (
+				C489480E238636AA003A9962 /* NauticalFlag-extension.swift */,
+				C489481023865154003A9962 /* NauticalFlagCategory-extension.swift */,
+				C4894812238653E3003A9962 /* NauticalFlagImage-extension.swift */,
+			);
+			path = LocalOverrides;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +316,7 @@
 				C489481523873511003A9962 /* EnvironmentKey-ManagedObjectModel.swift in Sources */,
 				C489480C238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift in Sources */,
 				C489481123865154003A9962 /* NauticalFlagCategory-extension.swift in Sources */,
+				C4B876B02392337E00260A1A /* sailboatRacing.xcdatamodeld in Sources */,
 				C4A96985238CC743003B9539 /* NauticalFlagSectionView.swift in Sources */,
 				C4894813238653E3003A9962 /* NauticalFlagImage-extension.swift in Sources */,
 				C48947C22384A7B5003A9962 /* NauticalFlagListViewModel.swift in Sources */,
@@ -311,7 +328,6 @@
 				C41E9F692380784700E75B9D /* AppDelegate.swift in Sources */,
 				C4894808238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift in Sources */,
 				C48947C42384ABFE003A9962 /* NauticalFlagsListView.swift in Sources */,
-				C489480023861AB7003A9962 /* sailboatRacing.xcdatamodeld in Sources */,
 				C489480D238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift in Sources */,
 				C489480F238636AA003A9962 /* NauticalFlag-extension.swift in Sources */,
 				C41E9F6B2380784700E75B9D /* SceneDelegate.swift in Sources */,
@@ -512,12 +528,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C48947FE23861AB7003A9962 /* sailboatRacing.xcdatamodeld */ = {
+		C4B876A52392337E00260A1A /* sailboatRacing.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C48947FF23861AB7003A9962 /* sailboatRacing.xcdatamodel */,
+				C4B876A62392337E00260A1A /* jsonData.xcdatamodel */,
 			);
-			currentVersion = C48947FF23861AB7003A9962 /* sailboatRacing.xcdatamodel */;
+			currentVersion = C4B876A62392337E00260A1A /* jsonData.xcdatamodel */;
 			path = sailboatRacing.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

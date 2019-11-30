@@ -1,6 +1,5 @@
 //
 //  UIImage-downloadFrom.swift
-//  jsonData
 //
 //  Created by Tim DiLauro on 11/19/19.
 //  Copyright © 2019 Five Lions. All rights reserved.

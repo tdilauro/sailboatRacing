@@ -1,6 +1,5 @@
 //
 //  NauticalFlagsDatabaseUtilities.swift
-//  jsonData
 //
 //  Created by Tim DiLauro on 11/29/19.
 //  Copyright © 2019 Five Lions. All rights reserved.
