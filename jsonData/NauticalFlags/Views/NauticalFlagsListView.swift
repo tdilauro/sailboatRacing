@@ -30,12 +30,11 @@ struct NauticalFlagsListView: View {
                 leading: HStack {
                     if flagsVM.sectionCount > 0 {
                         Button(action: {
-                            NauticalFlagsImporter().purgeData(managedObjectContext: self.moc,
-                                                              managedObjectModel: self.moModel)
+                            self.flagsVM.purgeData(managedObjectModel: self.moModel)
                         }, label: { Text("Purge Data") })
                     } else {
                         Button(action: {
-                            NauticalFlagsImporter().importJSON(from: self.jsonURL, into: self.moc)
+                            self.flagsVM.loadData(jsonURL: self.jsonURL)
                         }, label: { Text("Import Data") })
                     }
                 },

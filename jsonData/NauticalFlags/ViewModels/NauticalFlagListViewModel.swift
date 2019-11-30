@@ -46,3 +46,17 @@ class NauticalFlagListViewModel: ObservableObject {
         .store(in: &cancellables)
     }
 }
+
+
+extension NauticalFlagListViewModel {
+
+    func loadData(jsonURL: String) {
+        NauticalFlagsImporter().importJSON(from: jsonURL, into: self.context)
+    }
+
+    func purgeData(managedObjectModel: NSManagedObjectModel) {
+        NauticalFlagsImporter().purgeData(managedObjectContext: self.context,
+                                      managedObjectModel: managedObjectModel)
+    }
+
+}
