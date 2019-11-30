@@ -28,23 +28,11 @@ struct NauticalFlagSectionView: View {
                     NauticalFlagListItem(flagVM: flagVM)
                         .listRowBackground(Color.secondary.opacity(row % 2 == 0 ? 0.8 : 0.5))
                 }
-                .onDelete(perform: self.deleteItem)
+                .onDelete(perform: self.sectionVM.deleteFlags)
             }
         }
     }
 
-
-    func deleteItem(items: IndexSet) {
-        items.forEach( { index in
-            let flagVM = self.sectionVM.flags[index]
-            print("deleting item \(index): \(flagVM.id)")
-            print("deleting object from context")
-//            self.sectionVM.flags.remove(at: index)
-            moc.delete(flagVM.flag)
-            try? moc.save()
-            // still need to save
-        })
-    }
 }
 
 //struct NauticalFlagsListView_Previews: PreviewProvider {

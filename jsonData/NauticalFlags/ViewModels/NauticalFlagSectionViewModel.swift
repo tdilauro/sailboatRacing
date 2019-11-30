@@ -55,6 +55,21 @@ class NauticalFlagSectionViewModel: ObservableObject {
 }
 
 
+extension NauticalFlagSectionViewModel {
+
+    func deleteFlags(flags: IndexSet) {
+        flags.forEach { index in
+            let flagVM = self.flags[index]
+            print("deleting item \(index): \(flagVM.id)")
+            self.context.delete(flagVM.flag)
+        }
+        if context.hasChanges {
+            print("saving context")
+            try? context.save()
+        }
+    }
+}
+
 
 extension NauticalFlagSectionViewModel: Equatable {
 
