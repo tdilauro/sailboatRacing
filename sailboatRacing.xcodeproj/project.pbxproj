@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C40C00E723922CC400E47AFB /* NauticalFlagListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40C00E323922CC400E47AFB /* NauticalFlagListItem.swift */; };
 		C41E9F692380784700E75B9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41E9F682380784700E75B9D /* AppDelegate.swift */; };
 		C41E9F6B2380784700E75B9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41E9F6A2380784700E75B9D /* SceneDelegate.swift */; };
 		C41E9F6D2380784700E75B9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41E9F6C2380784700E75B9D /* ContentView.swift */; };
@@ -14,13 +15,12 @@
 		C41E9F722380784800E75B9D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41E9F712380784800E75B9D /* Preview Assets.xcassets */; };
 		C41E9F752380784800E75B9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41E9F732380784800E75B9D /* LaunchScreen.storyboard */; };
 		C41E9F7E2383138600E75B9D /* RAC-Indexed-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41E9F7D2383138600E75B9D /* RAC-Indexed-Extension.swift */; };
-		C48947BC23849F84003A9962 /* NauticalFlagListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947BA23849F84003A9962 /* NauticalFlagListItem.swift */; };
 		C48947BD23849F84003A9962 /* NauticalFlagSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947BB23849F84003A9962 /* NauticalFlagSectionHeader.swift */; };
 		C48947C22384A7B5003A9962 /* NauticalFlagListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947C12384A7B5003A9962 /* NauticalFlagListViewModel.swift */; };
 		C48947C42384ABFE003A9962 /* NauticalFlagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947C32384ABFE003A9962 /* NauticalFlagsListView.swift */; };
 		C48947C62384AE71003A9962 /* NauticalFlagJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947C52384AE71003A9962 /* NauticalFlagJSON.swift */; };
 		C48947FD23851446003A9962 /* PersistentContainerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48947FC23851446003A9962 /* PersistentContainerManager.swift */; };
-		C489480023861AB7003A9962 /* jsonData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C48947FE23861AB7003A9962 /* jsonData.xcdatamodeld */; };
+		C489480023861AB7003A9962 /* sailboatRacing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C48947FE23861AB7003A9962 /* sailboatRacing.xcdatamodeld */; };
 		C4894808238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4894802238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift */; };
 		C4894809238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4894803238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift */; };
 		C489480A238634DA003A9962 /* NauticalFlag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4894804238634DA003A9962 /* NauticalFlag+CoreDataClass.swift */; };
@@ -42,7 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C41E9F652380784700E75B9D /* jsonData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jsonData.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40C00E323922CC400E47AFB /* NauticalFlagListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NauticalFlagListItem.swift; sourceTree = "<group>"; };
+		C41E9F652380784700E75B9D /* sailboatRacing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sailboatRacing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41E9F682380784700E75B9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41E9F6A2380784700E75B9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C41E9F6C2380784700E75B9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,19 +52,18 @@
 		C41E9F742380784800E75B9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C41E9F762380784800E75B9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C41E9F7D2383138600E75B9D /* RAC-Indexed-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAC-Indexed-Extension.swift"; sourceTree = "<group>"; };
-		C48947BA23849F84003A9962 /* NauticalFlagListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NauticalFlagListItem.swift; path = jsonData/NauticalFlags/Views/NauticalFlagListItem.swift; sourceTree = SOURCE_ROOT; };
-		C48947BB23849F84003A9962 /* NauticalFlagSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NauticalFlagSectionHeader.swift; path = jsonData/NauticalFlags/Views/NauticalFlagSectionHeader.swift; sourceTree = SOURCE_ROOT; };
+		C48947BB23849F84003A9962 /* NauticalFlagSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NauticalFlagSectionHeader.swift; path = sailboatRacing/NauticalFlags/Views/NauticalFlagSectionHeader.swift; sourceTree = SOURCE_ROOT; };
 		C48947C12384A7B5003A9962 /* NauticalFlagListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NauticalFlagListViewModel.swift; sourceTree = "<group>"; };
 		C48947C32384ABFE003A9962 /* NauticalFlagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NauticalFlagsListView.swift; sourceTree = "<group>"; };
 		C48947C52384AE71003A9962 /* NauticalFlagJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NauticalFlagJSON.swift; sourceTree = "<group>"; };
 		C48947FC23851446003A9962 /* PersistentContainerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentContainerManager.swift; sourceTree = "<group>"; };
-		C48947FF23861AB7003A9962 /* jsonData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = jsonData.xcdatamodel; sourceTree = "<group>"; };
-		C4894802238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagImage+CoreDataClass.swift"; path = "jsonData/CoreDataModels/NauticalFlagImage+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C4894803238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagImage+CoreDataProperties.swift"; path = "jsonData/CoreDataModels/NauticalFlagImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C4894804238634DA003A9962 /* NauticalFlag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlag+CoreDataClass.swift"; path = "jsonData/CoreDataModels/NauticalFlag+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C4894805238634DA003A9962 /* NauticalFlag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlag+CoreDataProperties.swift"; path = "jsonData/CoreDataModels/NauticalFlag+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C4894806238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagCategory+CoreDataClass.swift"; path = "jsonData/CoreDataModels/NauticalFlagCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C4894807238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagCategory+CoreDataProperties.swift"; path = "jsonData/CoreDataModels/NauticalFlagCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C48947FF23861AB7003A9962 /* sailboatRacing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sailboatRacing.xcdatamodel; sourceTree = "<group>"; };
+		C4894802238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagImage+CoreDataClass.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlagImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C4894803238634DA003A9962 /* NauticalFlagImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagImage+CoreDataProperties.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlagImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C4894804238634DA003A9962 /* NauticalFlag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlag+CoreDataClass.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C4894805238634DA003A9962 /* NauticalFlag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlag+CoreDataProperties.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C4894806238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagCategory+CoreDataClass.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlagCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C4894807238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NauticalFlagCategory+CoreDataProperties.swift"; path = "sailboatRacing/CoreDataModels/NauticalFlagCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C489480E238636AA003A9962 /* NauticalFlag-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlag-extension.swift"; sourceTree = "<group>"; };
 		C489481023865154003A9962 /* NauticalFlagCategory-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlagCategory-extension.swift"; sourceTree = "<group>"; };
 		C4894812238653E3003A9962 /* NauticalFlagImage-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NauticalFlagImage-extension.swift"; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 				C4894805238634DA003A9962 /* NauticalFlag+CoreDataProperties.swift */,
 				C4894806238634DA003A9962 /* NauticalFlagCategory+CoreDataClass.swift */,
 				C4894807238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift */,
-				C41E9F672380784700E75B9D /* jsonData */,
+				C41E9F672380784700E75B9D /* sailboatRacing */,
 				C41E9F662380784700E75B9D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,12 +106,12 @@
 		C41E9F662380784700E75B9D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C41E9F652380784700E75B9D /* jsonData.app */,
+				C41E9F652380784700E75B9D /* sailboatRacing.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C41E9F672380784700E75B9D /* jsonData */ = {
+		C41E9F672380784700E75B9D /* sailboatRacing */ = {
 			isa = PBXGroup;
 			children = (
 				C48947F92385119E003A9962 /* CoreData */,
@@ -127,7 +127,7 @@
 				C41E9F762380784800E75B9D /* Info.plist */,
 				C41E9F702380784800E75B9D /* Preview Content */,
 			);
-			path = jsonData;
+			path = sailboatRacing;
 			sourceTree = "<group>";
 		};
 		C41E9F702380784800E75B9D /* Preview Content */ = {
@@ -168,7 +168,7 @@
 		C489480123862356003A9962 /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
-				C48947FE23861AB7003A9962 /* jsonData.xcdatamodeld */,
+				C48947FE23861AB7003A9962 /* sailboatRacing.xcdatamodeld */,
 				C489480E238636AA003A9962 /* NauticalFlag-extension.swift */,
 				C489481023865154003A9962 /* NauticalFlagCategory-extension.swift */,
 				C4894812238653E3003A9962 /* NauticalFlagImage-extension.swift */,
@@ -212,7 +212,7 @@
 				C48947C32384ABFE003A9962 /* NauticalFlagsListView.swift */,
 				C4A96984238CC743003B9539 /* NauticalFlagSectionView.swift */,
 				C48947BB23849F84003A9962 /* NauticalFlagSectionHeader.swift */,
-				C48947BA23849F84003A9962 /* NauticalFlagListItem.swift */,
+				C40C00E323922CC400E47AFB /* NauticalFlagListItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,9 +220,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C41E9F642380784700E75B9D /* jsonData */ = {
+		C41E9F642380784700E75B9D /* sailboatRacing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C41E9F792380784800E75B9D /* Build configuration list for PBXNativeTarget "jsonData" */;
+			buildConfigurationList = C41E9F792380784800E75B9D /* Build configuration list for PBXNativeTarget "sailboatRacing" */;
 			buildPhases = (
 				C41E9F612380784700E75B9D /* Sources */,
 				C41E9F622380784700E75B9D /* Frameworks */,
@@ -232,9 +232,9 @@
 			);
 			dependencies = (
 			);
-			name = jsonData;
-			productName = jsonData;
-			productReference = C41E9F652380784700E75B9D /* jsonData.app */;
+			name = sailboatRacing;
+			productName = sailboatRacing;
+			productReference = C41E9F652380784700E75B9D /* sailboatRacing.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -252,7 +252,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C41E9F602380784700E75B9D /* Build configuration list for PBXProject "jsonData" */;
+			buildConfigurationList = C41E9F602380784700E75B9D /* Build configuration list for PBXProject "sailboatRacing" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -265,7 +265,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C41E9F642380784700E75B9D /* jsonData */,
+				C41E9F642380784700E75B9D /* sailboatRacing */,
 			);
 		};
 /* End PBXProject section */
@@ -289,11 +289,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41E9F7E2383138600E75B9D /* RAC-Indexed-Extension.swift in Sources */,
-				C48947BC23849F84003A9962 /* NauticalFlagListItem.swift in Sources */,
 				C489481D238B2A59003A9962 /* NauticalFlagSectionViewModel.swift in Sources */,
 				C48948172388595A003A9962 /* ManagedObjectChangesPublisher.swift in Sources */,
 				C4FECFF6239217F800FA46EB /* NauticalFlagsDatabaseUtilities.swift in Sources */,
 				C4B17FF42383BEEF0091F26A /* String-matches.swift in Sources */,
+				C40C00E723922CC400E47AFB /* NauticalFlagListItem.swift in Sources */,
 				C48947BD23849F84003A9962 /* NauticalFlagSectionHeader.swift in Sources */,
 				C489480A238634DA003A9962 /* NauticalFlag+CoreDataClass.swift in Sources */,
 				C48947FD23851446003A9962 /* PersistentContainerManager.swift in Sources */,
@@ -311,7 +311,7 @@
 				C41E9F692380784700E75B9D /* AppDelegate.swift in Sources */,
 				C4894808238634DA003A9962 /* NauticalFlagImage+CoreDataClass.swift in Sources */,
 				C48947C42384ABFE003A9962 /* NauticalFlagsListView.swift in Sources */,
-				C489480023861AB7003A9962 /* jsonData.xcdatamodeld in Sources */,
+				C489480023861AB7003A9962 /* sailboatRacing.xcdatamodeld in Sources */,
 				C489480D238634DA003A9962 /* NauticalFlagCategory+CoreDataProperties.swift in Sources */,
 				C489480F238636AA003A9962 /* NauticalFlag-extension.swift in Sources */,
 				C41E9F6B2380784700E75B9D /* SceneDelegate.swift in Sources */,
@@ -453,15 +453,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"jsonData/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"sailboatRacing/Preview Content\"";
 				DEVELOPMENT_TEAM = G59BWGA5L8;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = jsonData/Info.plist;
+				INFOPLIST_FILE = sailboatRacing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.5lions.jsonData;
+				PRODUCT_BUNDLE_IDENTIFIER = net.5lions.sailboatRacing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -473,15 +473,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"jsonData/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"sailboatRacing/Preview Content\"";
 				DEVELOPMENT_TEAM = G59BWGA5L8;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = jsonData/Info.plist;
+				INFOPLIST_FILE = sailboatRacing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.5lions.jsonData;
+				PRODUCT_BUNDLE_IDENTIFIER = net.5lions.sailboatRacing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -491,7 +491,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C41E9F602380784700E75B9D /* Build configuration list for PBXProject "jsonData" */ = {
+		C41E9F602380784700E75B9D /* Build configuration list for PBXProject "sailboatRacing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C41E9F772380784800E75B9D /* Debug */,
@@ -500,7 +500,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C41E9F792380784800E75B9D /* Build configuration list for PBXNativeTarget "jsonData" */ = {
+		C41E9F792380784800E75B9D /* Build configuration list for PBXNativeTarget "sailboatRacing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C41E9F7A2380784800E75B9D /* Debug */,
@@ -512,13 +512,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C48947FE23861AB7003A9962 /* jsonData.xcdatamodeld */ = {
+		C48947FE23861AB7003A9962 /* sailboatRacing.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C48947FF23861AB7003A9962 /* jsonData.xcdatamodel */,
+				C48947FF23861AB7003A9962 /* sailboatRacing.xcdatamodel */,
 			);
-			currentVersion = C48947FF23861AB7003A9962 /* jsonData.xcdatamodel */;
-			path = jsonData.xcdatamodeld;
+			currentVersion = C48947FF23861AB7003A9962 /* sailboatRacing.xcdatamodel */;
+			path = sailboatRacing.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

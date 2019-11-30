@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:jsonData.xcodeproj">
+      location = "self:/Users/Shared/src/git/ios/apps/jsonData/sailboatRacing.xcodeproj">
    </FileRef>
 </Workspace>
